@@ -1,0 +1,1118 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>ejemplos</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-06-19"><meta name="DC.source" content="ejemplos.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Codigos de ejemplo</a></li><li><a href="#2">1. Filtros en frecuencia</a></li><li><a href="#3">1.1 Filtro Butterworth pasa bajos</a></li><li><a href="#4">1.2 Filtro Gaussiano</a></li><li><a href="#5">1.3 Filtro Butterworth pasa altos</a></li><li><a href="#6">1.4 Filtro Gaussiano pasa altos</a></li><li><a href="#7">1.5 Laplaciano</a></li><li><a href="#8">1.6 Filtro de enfasis</a></li><li><a href="#9">1.7 Butterworth rechaza banda</a></li><li><a href="#10">1.8 Filtro homomorfico</a></li><li><a href="#11">1.9 Filtro de Wiener</a></li><li><a href="#12">1.10 Ejemplo rapido de disenno Filtro para ruido y bordes</a></li><li><a href="#13">2. Segmentacion</a></li><li><a href="#14">2.1 Segmentacion con filtro de bordes</a></li><li><a href="#15">2.2 Segmentacion de color  - Malahanobis</a></li><li><a href="#16">Segmentacion en frecuencia</a></li><li><a href="#17">3. Relleno de imagen</a></li><li><a href="#18">Funciones</a></li></ul></div><h2 id="1">Codigos de ejemplo</h2><p>Mathias Lambert V.(c) IEE2712, 2020-1</p><pre class="codeinput">clc;
+clear;
+close <span class="string">all</span>;
+set(0, <span class="string">'DefaultFigureWindowStyle'</span>, <span class="string">'docked'</span>);
+</pre><h2 id="2">1. Filtros en frecuencia</h2><pre class="codeinput">im = double(imread(<span class="string">'im1.jpg'</span>));
+im2 = im + randn(size(im)) * max(im(:))*5/100;
+figure(1);
+imshow([normalizar(im) normalizar(im2)]);
+title(<span class="string">'Imagen original \qquad \qquad \qquad \qquad \qquad \qquad \qquad Imagen con ruido'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+</pre><img vspace="5" hspace="5" src="ejemplos_01.png" style="width:1680px;height:825px;" alt=""> <h2 id="3">1.1 Filtro Butterworth pasa bajos</h2><pre class="codeinput">[M, N, ~] = size(im2);
+[y, x] = meshgrid(1:N, 1:M);
+r = ((x - M/2).^2 + (y - N/2).^2).^.5;
+
+butterworth = @(r0, n) 1./(1+(r/r0).^(2*n));
+
+r0 = 60; <span class="comment">% radio</span>
+n = 1;    <span class="comment">% orden</span>
+figure(2);
+figure(3);
+<span class="keyword">for</span> n = 1:4
+    figure(2);
+    subplot(2,2,n);
+    filtro = butterworth(r0, n);
+    mesh(filtro);
+    title([<span class="string">'Orden '</span>, num2str(n)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+    imf = zeros(size(im2));
+    <span class="keyword">for</span> i = 1:3
+        aux = fftshift(fft2(im2(:,:,i)));
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    <span class="keyword">end</span>
+    figure(3);
+    subplot(2,2,n);
+    imshow(normalizar(imf));
+    title([<span class="string">'Resultado filtro Orden '</span>, num2str(n)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+<span class="keyword">end</span>
+figure(2);
+l = suptitle(<span class="string">'Filtro de Butterworth'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+figure(3);
+l = suptitle(<span class="string">'Filtro de Butterworth'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_02.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_03.png" style="width:1680px;height:825px;" alt=""> <h2 id="4">1.2 Filtro Gaussiano</h2><pre class="codeinput">gaussiano = @(r0) exp((-r.^2)/(2*r0.^2));
+
+figure(4);
+figure(5);
+k = 1;
+<span class="keyword">for</span> r0 = 10:20:70
+    figure(4);
+    subplot(2,2,k);
+    filtro = gaussiano(r0);
+    mesh(filtro);
+    title([<span class="string">'Radio '</span>, num2str(r0)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+    imf = zeros(size(im2));
+    <span class="keyword">for</span> i = 1:3
+        aux = fftshift(fft2(im2(:,:,i)));
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    <span class="keyword">end</span>
+    figure(5);
+    subplot(2,2,k);
+    imshow(normalizar(imf));
+    title([<span class="string">'Resultado filtro Radio '</span>, num2str(r0)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+    k = k + 1;
+<span class="keyword">end</span>
+figure(4);
+l = suptitle(<span class="string">'Filtro de Gaussiano'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+figure(5);
+l = suptitle(<span class="string">'Filtro de Gaussiano'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_04.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_05.png" style="width:1680px;height:825px;" alt=""> <h2 id="5">1.3 Filtro Butterworth pasa altos</h2><pre class="codeinput">butterworth2 = @(r0, n) 1./(1+(r0./r).^(2*n));
+
+r0 = 60; <span class="comment">% radio</span>
+n = 1;    <span class="comment">% orden</span>
+figure(6);
+figure(7);
+<span class="keyword">for</span> n = 1:4
+    figure(6);
+    subplot(2,2,n);
+    filtro = butterworth2(r0, n);
+    mesh(filtro);
+    title([<span class="string">'Orden '</span>, num2str(n)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+    imf = zeros(size(im2));
+    <span class="keyword">for</span> i = 1:3
+        aux = fftshift(fft2(im2(:,:,i)));
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    <span class="keyword">end</span>
+    figure(7);
+    subplot(2,2,n);
+    imshow(normalizar(imf));
+    title([<span class="string">'Resultado filtro Orden '</span>, num2str(n)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+<span class="keyword">end</span>
+
+figure(6);
+l = suptitle(<span class="string">'Filtro de Butterworth pasa altos'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+figure(7);
+l = suptitle(<span class="string">'Filtro de Butterworth pasa altos'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_06.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_07.png" style="width:1680px;height:825px;" alt=""> <h2 id="6">1.4 Filtro Gaussiano pasa altos</h2><pre class="codeinput">gaussiano2 = @(r0) 1 - exp((-r.^2)/(2*r0.^2));
+
+figure(8);
+figure(9);
+k = 1;
+<span class="keyword">for</span> r0 = 10:20:70
+    figure(8);
+    subplot(2,2,k);
+    filtro = gaussiano2(r0);
+    mesh(filtro);
+    title([<span class="string">'Radio '</span>, num2str(r0)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+    imf = zeros(size(im2));
+    <span class="keyword">for</span> i = 1:3
+        aux = fftshift(fft2(im2(:,:,i)));
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    <span class="keyword">end</span>
+    figure(9);
+    subplot(2,2,k);
+    imshow(normalizar(imf));
+    title([<span class="string">'Resultado filtro Radio '</span>, num2str(r0)], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+    k = k + 1;
+<span class="keyword">end</span>
+figure(8);
+l = suptitle(<span class="string">'Filtro de Gaussiano pasa altos'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+figure(9);
+l = suptitle(<span class="string">'Filtro de Gaussiano pasa altos'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_08.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_09.png" style="width:1680px;height:825px;" alt=""> <h2 id="7">1.5 Laplaciano</h2><pre class="codeinput">laplaciano = -4 * pi^2 * r.^2;
+imf = zeros(size(im));
+<span class="keyword">for</span> i = 1:3
+    aux = fftshift(fft2(im(:,:,i)));
+    imf(:,:,i) = real(ifft2(ifftshift(aux.*laplaciano)));
+<span class="keyword">end</span>
+figure(10);
+imshow(normalizar(imf));
+title(<span class="string">'Laplaciano'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_10.png" style="width:1680px;height:825px;" alt=""> <h2 id="8">1.6 Filtro de enfasis</h2><pre class="codeinput">enfasis = @(k1, k2, filtro) k1 + k2*filtro;
+<span class="comment">% k1, k2 &gt; 0</span>
+
+f = butterworth2(60, 1);
+filtro = enfasis(0.5,1,f);
+imf = zeros(size(im));
+<span class="keyword">for</span> i = 1:3
+    aux = fftshift(fft2(im(:,:,i)));
+    imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+<span class="keyword">end</span>
+figure(11);
+imshow(normalizar(imf));
+title(<span class="string">'Filtro enfasis'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_11.png" style="width:1680px;height:825px;" alt=""> <h2 id="9">1.7 Butterworth rechaza banda</h2><pre class="codeinput">butterworth3 = @(r1, r0, n) 1./(1+((r*r1./(r.^2-r0^2))).^(2*n));
+
+r1 = [100, 200, 250, 300];
+r0 = [30, 100, 150, 200];
+
+figure(12);
+figure(13);
+<span class="keyword">for</span> i = 1:4
+    figure(12);
+    subplot(2,2,i);
+    filtro = butterworth3(r1(i), r0(i), 1);
+    mesh(filtro);
+    title([<span class="string">'r1: '</span>, num2str(r1(i)), <span class="string">' r0: '</span>, num2str(r0(i))], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+    imf = zeros(size(im2));
+    <span class="keyword">for</span> j = 1:3
+        aux = fftshift(fft2(im2(:,:,j)));
+        imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+    <span class="keyword">end</span>
+    figure(13);
+    subplot(2,2,i);
+    imshow(normalizar(imf));
+    title([<span class="string">'Resultado, r1: '</span>, num2str(r1(i)), <span class="string">' r0: '</span>, num2str(r0(i))], <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 20);
+<span class="keyword">end</span>
+
+figure(12);
+l = suptitle(<span class="string">'Filtro de Butterworth rechaza banda'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+figure(13);
+l = suptitle(<span class="string">'Filtro de Butterworth rechaza banda'</span>);
+set(l, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_12.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_13.png" style="width:1680px;height:825px;" alt=""> <h2 id="10">1.8 Filtro homomorfico</h2><pre class="codeinput"> imf = zeros(size(im2));
+ yh = 0.5;
+ yl = 0.3;
+ h = butterworth2(30, 1); <span class="comment">% filtro pasa altos</span>
+ filtro = (yh - yl)*h +yl;
+<span class="keyword">for</span> j = 1:3
+    aux = fftshift(fft2(log(im(:,:,j)+1)));
+    imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+    imf(:,:,j) = imf(:,:,j) - min(min(imf(:,:,j))) + 1;
+    imf(:,:,j) = exp(imf(:,:,j));
+<span class="keyword">end</span>
+
+figure(14);
+imshow(normalizar(imf));
+title(<span class="string">'Filtro homomorfico'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_14.png" style="width:1680px;height:825px;" alt=""> <h2 id="11">1.9 Filtro de Wiener</h2><pre class="codeinput">f = butterworth(30, 1);
+
+im3 = zeros(size(im2));
+<span class="keyword">for</span> j = 1:3
+    aux = fftshift(fft2(im(:,:,j)));
+    im3(:,:,j) = real(ifft2(ifftshift(aux.*f))) + randn(size(aux))*10;
+<span class="keyword">end</span>
+
+figure(15);
+imshow(normalizar(im3));
+title(<span class="string">'Input Filtro de Wiener'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+
+
+af = abs(f).^2;
+wiener = @(k) (1./(f+eps)) .* (af./(af+k+eps));
+
+filtro = wiener(0.08);
+imf = zeros(size(im3));
+
+<span class="keyword">for</span> j = 1:3
+    aux = fftshift(fft2(im3(:,:,j)));
+    imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+<span class="keyword">end</span>
+
+figure(16);
+imshow(normalizar(imf));
+title(<span class="string">'Filtro de Wiener'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_15.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_16.png" style="width:1680px;height:825px;" alt=""> <h2 id="12">1.10 Ejemplo rapido de disenno Filtro para ruido y bordes</h2><pre class="codeinput">filtro = (1 - butterworth3(60, 30, 1)) .* butterworth2(100, 1) .* (laplaciano) .* gaussiano2(50);
+
+<span class="keyword">for</span> j = 1:3
+    aux = fftshift(fft2(im2(:,:,j)));
+    imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+<span class="keyword">end</span>
+
+figure(17);
+mesh(filtro);
+title(<span class="string">'Filtro de ruido y bordes'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+
+figure(18);
+imshow(normalizar(imf));
+title(<span class="string">'Filtro de ruido y bordes'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 40);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_17.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_18.png" style="width:1680px;height:825px;" alt=""> <h2 id="13">2. Segmentacion</h2><pre class="codeinput">clear;
+clc;
+</pre><h2 id="14">2.1 Segmentacion con filtro de bordes</h2><pre class="codeinput">im = double(imread(<span class="string">'coins.png'</span>));
+figure;
+imshow(im,[]); hold <span class="string">on</span>;
+title(<span class="string">'Imagen de entrada'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+<span class="comment">% kernel radial para bordes circulares</span>
+r = 29;
+N = fix(2*r + 1.5);
+[x, y] = meshgrid(1:N, 1:N);
+kernel = sqrt((x-N/2).^2 + (y-N/2).^2) &lt; 29;
+kernel = kernel / sum(kernel(:));
+
+<span class="comment">% aplicacion kernel circular</span>
+imf = conv2(im, kernel, <span class="string">'same'</span>);
+<span class="comment">% segunda derivada</span>
+imf = conv2(imf, [0 1 0;1 -4 1;0 1 0], <span class="string">'same'</span>);
+<span class="comment">% umbral</span>
+imf = abs(imf)&gt;0.6;
+imf = imclearborder(imf);
+<span class="comment">% elminacion pequennas areas</span>
+imf = bwareaopen(imf, 30);
+<span class="comment">% etiquetamos las areas</span>
+[L,n] = bwlabel(imf);
+
+mask = zeros(size(im));
+[a,b] = size(im);
+[x, y] = meshgrid(1:b, 1:a);
+<span class="keyword">for</span> i = 1:n
+    <span class="comment">% localizamos centros</span>
+    [ii, jj] = find(L==i);
+    xx = round(mean(ii));
+    yy = round(mean(jj));
+    plot(yy, xx, <span class="string">'o'</span>,<span class="string">'MarkerFaceColor'</span>, <span class="string">'r'</span>);
+    <span class="comment">% ajustamos radio</span>
+    rm = 10;
+    <span class="keyword">while</span> im(xx, yy-rm) &gt; 100
+        rm = rm + 1;
+    <span class="keyword">end</span>
+    mask = mask + double(sqrt((x-yy).^2 + (y-xx).^2) &lt; rm);
+<span class="keyword">end</span>
+
+figure;
+imshow(mask, []);
+title(<span class="string">'Mascara'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+
+figure;
+imshow(mask.*im, []);
+title(<span class="string">'Segmentaci\''on'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_19.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_20.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_21.png" style="width:1680px;height:825px;" alt=""> <h2 id="15">2.2 Segmentacion de color  - Malahanobis</h2><pre class="codeinput">im = imread(<span class="string">'im3.jpg'</span>);
+
+figure;
+imshow(im);
+title(<span class="string">'Imagen de entrada (Selecciona 10 puntos de color)'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+
+colores = [];
+<span class="keyword">for</span> i = 1:10
+    [ii, jj] = ginput(1);
+    x = round(ii);
+    y = round(jj);
+
+    color = squeeze(im(y,x,:));
+    colores = [colores,color];
+<span class="keyword">end</span>
+title(<span class="string">'Imagen de entrada '</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+
+colores = double(colores);
+figure;
+imshow(meshgrid(1:10), colores'/255);
+title(<span class="string">'Colores seleccionados'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+
+<span class="comment">% Distancia de mahalanobis</span>
+mask = zeros(size(im,1), size(im,2));
+icovar = inv(cov(colores'));
+icovar = icovar / max(icovar(:));
+prom = sum(colores, 2)/10;
+h = 0.1;
+<span class="keyword">for</span> i = 1:size(im,1)
+    <span class="keyword">for</span> j = 1:size(im,2)
+        pixel = double(squeeze(im(i, j, :)));
+        dist = (pixel - prom)' * icovar * (pixel - prom);
+        mask(i,j) = dist;
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+figure;
+imshow(mask, []);
+title(<span class="string">'Imagen de distancia'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+
+
+mask = mask&lt;100;
+figure;
+imshow(mask, []);
+title(<span class="string">'Mascara'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+
+figure;
+imshow(uint8(mask.*double(im)));
+title(<span class="string">'Imagen Segmentada'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_22.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_23.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_24.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_25.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_26.png" style="width:1680px;height:825px;" alt=""> <h2 id="16">Segmentacion en frecuencia</h2><pre class="codeinput">venado = imread(<span class="string">'im2.png'</span>);
+
+im = venado(:,: ,3)-venado(:,:,1);
+
+figure;
+imshow(im, []);
+title(<span class="string">'Imagen a utilizar'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30);
+
+fft = fftshift(fft2(im));
+
+figure;
+imshow(log(abs(fft))+1,[])
+title(<span class="string">'FFT'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30)
+
+[N, M] = size(im);
+[col, row] = meshgrid(1:N, 1:M);
+circulos = ((col - M/2).^2 + (row - N/2).^2).^.5;
+
+n = 20;
+D0 = 30;
+D1 = 100;
+
+<span class="comment">% filtro Butterworth</span>
+filtr = (1./(1+(circulos./D0).^(2*n)));
+f2 = (1./(1+(circulos./D1).^(2*n)));
+filtro = (-filtr + f2);
+
+figure;
+imshow(log(abs(fft.*filtro))+1,[])
+title(<span class="string">'FFT filtada'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30)
+
+vg2 = ifft2(ifftshift(fft.* filtro));
+vg2 = uint8(real(vg2));
+b = vg2 &gt; 2;
+b = bwareaopen(b, 200);
+b(635:1024, :) = 0;
+figure;
+imshow(b)
+title(<span class="string">'Mascara Parte de la Reja'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30)
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_27.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_28.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_29.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_30.png" style="width:1680px;height:825px;" alt=""> <h2 id="17">3. Relleno de imagen</h2><p>Para completar los datos faltantes, utilizo un modelo de probabilidades normal, en el cual en primera instancia se recorre la imagen mediante una ventana de 4x4 buscando 0's y luego se rellenan esos espacios segun un numero aleatorio correspondiente a la distribucion normal de la ventana(datos de la ventana sin considerar los 0). Luego como la reja es mas gruesa que 4x4 existe parte de ella que no es eliminada, por lo cual se recorre nuevamente con una ventana de 8x8.</p><pre class="codeinput">figure;
+faltan_datos = venado.*uint8(~imdilate(b,1));
+imshow(faltan_datos)
+title(<span class="string">'Imagen con datos faltantes'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30)
+
+<span class="keyword">for</span> iii = 1:3
+    divisiones = 256;
+    salto = N/divisiones - 1;
+    <span class="keyword">for</span> i = 1:N/divisiones:N-1
+        <span class="keyword">for</span> j = 1:M/divisiones:M-1
+            mu = media(faltan_datos(i:i+salto, j:j+salto, iii));
+            sigma = sd(faltan_datos(i:i+salto, j:j+salto, iii), mu);
+            <span class="keyword">for</span> k = i:salto+i
+                <span class="keyword">for</span> kk = j:salto+j
+                    <span class="keyword">if</span> faltan_datos(k, kk, iii) == 0
+                        faltan_datos(k, kk, iii) = normrnd(mu,sigma);
+                    <span class="keyword">end</span>
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    divisiones = 128;
+    salto = N/divisiones - 1;
+    <span class="keyword">for</span> i = 1:N/divisiones:N-1
+        <span class="keyword">for</span> j = 1:M/divisiones:M-1
+            mu = media(faltan_datos(i:i+salto, j:j+salto, iii));
+            sigma = sd(faltan_datos(i:i+salto, j:j+salto, iii), mu);
+            <span class="keyword">for</span> k = i:salto+i
+                <span class="keyword">for</span> kk = j:salto+j
+                    <span class="keyword">if</span> faltan_datos(k, kk, iii) == 0
+                        faltan_datos(k, kk, iii) = normrnd(mu,sigma);
+                    <span class="keyword">end</span>
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure;
+imshow(faltan_datos)
+title(<span class="string">'Imagen Recontruida'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 30)
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><img vspace="5" hspace="5" src="ejemplos_31.png" style="width:1680px;height:825px;" alt=""> <img vspace="5" hspace="5" src="ejemplos_32.png" style="width:1680px;height:825px;" alt=""> <h2 id="18">Funciones</h2><pre class="codeinput"><span class="keyword">function</span> [y] = normalizar(im)
+y = zeros(size(im), <span class="string">'uint8'</span>);
+<span class="keyword">for</span> i = 1:3
+    x = im(:,:,i);
+    y(:,:,i) = uint8(255*(x-min(x(:)))/(max(x(:))-min(x(:))));
+
+<span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> m = media(a)
+    cantidad = 0;
+    suma = 0;
+    [N, M] = size(a);
+    <span class="keyword">for</span> ii = 1:N
+        <span class="keyword">for</span> jj = 1:M
+            <span class="keyword">if</span> a(ii, jj) ~= 0
+                cantidad = cantidad + 1;
+                suma = suma + double(a(ii, jj));
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    m = suma/cantidad;
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> s = sd(a, u)
+    suma = 0;
+    cantidad = 0;
+    [N, M] = size(a);
+    <span class="keyword">for</span> i = 1:N
+        <span class="keyword">for</span> j = 1:M
+            <span class="keyword">if</span> a(i, j) ~= 0
+                cantidad = cantidad + 1;
+                suma = suma + (double(a(i, j)) - u).^2;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    s = sqrt((1/(cantidad - 1))*suma);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Warning: The initial magnification of the image is set to 'fit' in a docked
+figure. 
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Codigos de ejemplo
+% Mathias Lambert V.(c)
+% IEE2712, 2020-1
+
+clc;
+clear;
+close all;
+set(0, 'DefaultFigureWindowStyle', 'docked');
+
+%% 1. Filtros en frecuencia
+
+im = double(imread('im1.jpg'));
+im2 = im + randn(size(im)) * max(im(:))*5/100;
+figure(1);
+imshow([normalizar(im) normalizar(im2)]);
+title('Imagen original \qquad \qquad \qquad \qquad \qquad \qquad \qquad Imagen con ruido', 'Interpreter', 'latex', 'FontSize', 30);
+
+%% 1.1 Filtro Butterworth pasa bajos
+
+[M, N, ~] = size(im2);
+[y, x] = meshgrid(1:N, 1:M);
+r = ((x - M/2).^2 + (y - N/2).^2).^.5;
+
+butterworth = @(r0, n) 1./(1+(r/r0).^(2*n));
+
+r0 = 60; % radio
+n = 1;    % orden
+figure(2);
+figure(3);
+for n = 1:4
+    figure(2);
+    subplot(2,2,n);
+    filtro = butterworth(r0, n);
+    mesh(filtro);
+    title(['Orden ', num2str(n)], 'Interpreter', 'latex', 'FontSize', 20);
+    imf = zeros(size(im2));
+    for i = 1:3
+        aux = fftshift(fft2(im2(:,:,i))); 
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    end
+    figure(3);
+    subplot(2,2,n);
+    imshow(normalizar(imf));
+    title(['Resultado filtro Orden ', num2str(n)], 'Interpreter', 'latex', 'FontSize', 20);
+end
+figure(2);
+l = suptitle('Filtro de Butterworth');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+figure(3);
+l = suptitle('Filtro de Butterworth');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.2 Filtro Gaussiano
+
+gaussiano = @(r0) exp((-r.^2)/(2*r0.^2));
+
+figure(4);
+figure(5);
+k = 1;
+for r0 = 10:20:70
+    figure(4);
+    subplot(2,2,k);
+    filtro = gaussiano(r0);
+    mesh(filtro);
+    title(['Radio ', num2str(r0)], 'Interpreter', 'latex', 'FontSize', 20);
+    imf = zeros(size(im2));
+    for i = 1:3
+        aux = fftshift(fft2(im2(:,:,i))); 
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    end
+    figure(5);
+    subplot(2,2,k);
+    imshow(normalizar(imf));
+    title(['Resultado filtro Radio ', num2str(r0)], 'Interpreter', 'latex', 'FontSize', 20);
+    k = k + 1;
+end
+figure(4);
+l = suptitle('Filtro de Gaussiano');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+figure(5);
+l = suptitle('Filtro de Gaussiano');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.3 Filtro Butterworth pasa altos
+
+butterworth2 = @(r0, n) 1./(1+(r0./r).^(2*n));
+
+r0 = 60; % radio
+n = 1;    % orden
+figure(6);
+figure(7);
+for n = 1:4
+    figure(6);
+    subplot(2,2,n);
+    filtro = butterworth2(r0, n);
+    mesh(filtro);
+    title(['Orden ', num2str(n)], 'Interpreter', 'latex', 'FontSize', 20);
+    imf = zeros(size(im2));
+    for i = 1:3
+        aux = fftshift(fft2(im2(:,:,i))); 
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    end
+    figure(7);
+    subplot(2,2,n);
+    imshow(normalizar(imf));
+    title(['Resultado filtro Orden ', num2str(n)], 'Interpreter', 'latex', 'FontSize', 20);
+end
+
+figure(6);
+l = suptitle('Filtro de Butterworth pasa altos');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+figure(7);
+l = suptitle('Filtro de Butterworth pasa altos');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.4 Filtro Gaussiano pasa altos
+
+gaussiano2 = @(r0) 1 - exp((-r.^2)/(2*r0.^2));
+
+figure(8);
+figure(9);
+k = 1;
+for r0 = 10:20:70
+    figure(8);
+    subplot(2,2,k);
+    filtro = gaussiano2(r0);
+    mesh(filtro);
+    title(['Radio ', num2str(r0)], 'Interpreter', 'latex', 'FontSize', 20);
+    imf = zeros(size(im2));
+    for i = 1:3
+        aux = fftshift(fft2(im2(:,:,i))); 
+        imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+    end
+    figure(9);
+    subplot(2,2,k);
+    imshow(normalizar(imf));
+    title(['Resultado filtro Radio ', num2str(r0)], 'Interpreter', 'latex', 'FontSize', 20);
+    k = k + 1;
+end
+figure(8);
+l = suptitle('Filtro de Gaussiano pasa altos');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+figure(9);
+l = suptitle('Filtro de Gaussiano pasa altos');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.5 Laplaciano 
+
+laplaciano = -4 * pi^2 * r.^2;
+imf = zeros(size(im));
+for i = 1:3
+    aux = fftshift(fft2(im(:,:,i))); 
+    imf(:,:,i) = real(ifft2(ifftshift(aux.*laplaciano)));
+end
+figure(10);
+imshow(normalizar(imf));
+title('Laplaciano', 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.6 Filtro de enfasis
+
+enfasis = @(k1, k2, filtro) k1 + k2*filtro;
+% k1, k2 > 0
+
+f = butterworth2(60, 1);
+filtro = enfasis(0.5,1,f);
+imf = zeros(size(im));
+for i = 1:3
+    aux = fftshift(fft2(im(:,:,i))); 
+    imf(:,:,i) = real(ifft2(ifftshift(aux.*filtro)));
+end
+figure(11);
+imshow(normalizar(imf));
+title('Filtro enfasis', 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.7 Butterworth rechaza banda
+
+butterworth3 = @(r1, r0, n) 1./(1+((r*r1./(r.^2-r0^2))).^(2*n));
+
+r1 = [100, 200, 250, 300];
+r0 = [30, 100, 150, 200];
+
+figure(12);
+figure(13);
+for i = 1:4
+    figure(12);
+    subplot(2,2,i);
+    filtro = butterworth3(r1(i), r0(i), 1);
+    mesh(filtro);
+    title(['r1: ', num2str(r1(i)), ' r0: ', num2str(r0(i))], 'Interpreter', 'latex', 'FontSize', 20);
+    imf = zeros(size(im2));
+    for j = 1:3
+        aux = fftshift(fft2(im2(:,:,j))); 
+        imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+    end
+    figure(13);
+    subplot(2,2,i);
+    imshow(normalizar(imf));
+    title(['Resultado, r1: ', num2str(r1(i)), ' r0: ', num2str(r0(i))], 'Interpreter', 'latex', 'FontSize', 20);
+end
+
+figure(12);
+l = suptitle('Filtro de Butterworth rechaza banda');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+figure(13);
+l = suptitle('Filtro de Butterworth rechaza banda');
+set(l, 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.8 Filtro homomorfico
+
+ imf = zeros(size(im2));
+ yh = 0.5;
+ yl = 0.3;
+ h = butterworth2(30, 1); % filtro pasa altos
+ filtro = (yh - yl)*h +yl;
+for j = 1:3
+    aux = fftshift(fft2(log(im(:,:,j)+1))); 
+    imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+    imf(:,:,j) = imf(:,:,j) - min(min(imf(:,:,j))) + 1;
+    imf(:,:,j) = exp(imf(:,:,j));
+end
+
+figure(14);
+imshow(normalizar(imf));
+title('Filtro homomorfico', 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.9 Filtro de Wiener
+
+f = butterworth(30, 1);
+
+im3 = zeros(size(im2));
+for j = 1:3
+    aux = fftshift(fft2(im(:,:,j))); 
+    im3(:,:,j) = real(ifft2(ifftshift(aux.*f))) + randn(size(aux))*10;
+end
+
+figure(15);
+imshow(normalizar(im3));
+title('Input Filtro de Wiener', 'Interpreter', 'latex', 'FontSize', 40);
+
+
+af = abs(f).^2;
+wiener = @(k) (1./(f+eps)) .* (af./(af+k+eps));
+
+filtro = wiener(0.08);
+imf = zeros(size(im3));
+
+for j = 1:3
+    aux = fftshift(fft2(im3(:,:,j))); 
+    imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+end
+
+figure(16);
+imshow(normalizar(imf));
+title('Filtro de Wiener', 'Interpreter', 'latex', 'FontSize', 40);
+
+%% 1.10 Ejemplo rapido de disenno Filtro para ruido y bordes
+
+filtro = (1 - butterworth3(60, 30, 1)) .* butterworth2(100, 1) .* (laplaciano) .* gaussiano2(50);
+
+for j = 1:3
+    aux = fftshift(fft2(im2(:,:,j))); 
+    imf(:,:,j) = real(ifft2(ifftshift(aux.*filtro)));
+end
+
+figure(17);
+mesh(filtro);
+title('Filtro de ruido y bordes', 'Interpreter', 'latex', 'FontSize', 40);
+
+figure(18);
+imshow(normalizar(imf));
+title('Filtro de ruido y bordes', 'Interpreter', 'latex', 'FontSize', 40);
+
+
+%% 2. Segmentacion 
+
+clear;
+clc;
+
+%% 2.1 Segmentacion con filtro de bordes
+
+im = double(imread('coins.png'));
+figure;
+imshow(im,[]); hold on;
+title('Imagen de entrada', 'Interpreter', 'latex', 'FontSize', 30);
+% kernel radial para bordes circulares
+r = 29;
+N = fix(2*r + 1.5);
+[x, y] = meshgrid(1:N, 1:N);
+kernel = sqrt((x-N/2).^2 + (y-N/2).^2) < 29;
+kernel = kernel / sum(kernel(:));
+
+% aplicacion kernel circular
+imf = conv2(im, kernel, 'same');
+% segunda derivada
+imf = conv2(imf, [0 1 0;1 -4 1;0 1 0], 'same');
+% umbral 
+imf = abs(imf)>0.6;
+imf = imclearborder(imf); 
+% elminacion pequennas areas
+imf = bwareaopen(imf, 30);
+% etiquetamos las areas
+[L,n] = bwlabel(imf);
+
+mask = zeros(size(im));
+[a,b] = size(im);
+[x, y] = meshgrid(1:b, 1:a);
+for i = 1:n
+    % localizamos centros
+    [ii, jj] = find(L==i);
+    xx = round(mean(ii));
+    yy = round(mean(jj));
+    plot(yy, xx, 'o','MarkerFaceColor', 'r');
+    % ajustamos radio
+    rm = 10;
+    while im(xx, yy-rm) > 100
+        rm = rm + 1;
+    end
+    mask = mask + double(sqrt((x-yy).^2 + (y-xx).^2) < rm);
+end
+
+figure;
+imshow(mask, []);
+title('Mascara', 'Interpreter', 'latex', 'FontSize', 30);
+
+figure;
+imshow(mask.*im, []);
+title('Segmentaci\''on', 'Interpreter', 'latex', 'FontSize', 30);
+
+
+%% 2.2 Segmentacion de color  - Malahanobis
+
+im = imread('im3.jpg');
+
+figure;
+imshow(im);
+title('Imagen de entrada (Selecciona 10 puntos de color)', 'Interpreter', 'latex', 'FontSize', 30);
+
+colores = [];
+for i = 1:10
+    [ii, jj] = ginput(1);
+    x = round(ii);
+    y = round(jj);
+    
+    color = squeeze(im(y,x,:));
+    colores = [colores,color];
+end
+title('Imagen de entrada ', 'Interpreter', 'latex', 'FontSize', 30);
+
+colores = double(colores);
+figure;
+imshow(meshgrid(1:10), colores'/255);
+title('Colores seleccionados', 'Interpreter', 'latex', 'FontSize', 30);
+
+% Distancia de mahalanobis
+mask = zeros(size(im,1), size(im,2));
+icovar = inv(cov(colores'));
+icovar = icovar / max(icovar(:));
+prom = sum(colores, 2)/10;
+h = 0.1;
+for i = 1:size(im,1)
+    for j = 1:size(im,2)
+        pixel = double(squeeze(im(i, j, :)));
+        dist = (pixel - prom)' * icovar * (pixel - prom);
+        mask(i,j) = dist;
+    end
+end
+
+figure;
+imshow(mask, []);
+title('Imagen de distancia', 'Interpreter', 'latex', 'FontSize', 30);
+
+
+mask = mask<100;
+figure;
+imshow(mask, []);
+title('Mascara', 'Interpreter', 'latex', 'FontSize', 30);
+
+figure;
+imshow(uint8(mask.*double(im)));
+title('Imagen Segmentada', 'Interpreter', 'latex', 'FontSize', 30);
+
+%% Segmentacion en frecuencia
+
+venado = imread('im2.png');
+
+im = venado(:,: ,3)-venado(:,:,1);
+
+figure;
+imshow(im, []);
+title('Imagen a utilizar', 'Interpreter', 'latex', 'FontSize', 30);
+
+fft = fftshift(fft2(im));
+
+figure;
+imshow(log(abs(fft))+1,[])
+title('FFT', 'Interpreter', 'latex', 'FontSize', 30)
+
+[N, M] = size(im);
+[col, row] = meshgrid(1:N, 1:M);
+circulos = ((col - M/2).^2 + (row - N/2).^2).^.5;
+
+n = 20;
+D0 = 30;
+D1 = 100;
+
+% filtro Butterworth
+filtr = (1./(1+(circulos./D0).^(2*n)));
+f2 = (1./(1+(circulos./D1).^(2*n)));
+filtro = (-filtr + f2);
+
+figure;
+imshow(log(abs(fft.*filtro))+1,[])
+title('FFT filtada', 'Interpreter', 'latex', 'FontSize', 30)
+
+vg2 = ifft2(ifftshift(fft.* filtro));
+vg2 = uint8(real(vg2));
+b = vg2 > 2;
+b = bwareaopen(b, 200);
+b(635:1024, :) = 0;
+figure;
+imshow(b)
+title('Mascara Parte de la Reja', 'Interpreter', 'latex', 'FontSize', 30)
+
+%% 3. Relleno de imagen 
+% Para completar los datos faltantes, utilizo un modelo de
+% probabilidades normal, en el cual en primera instancia se recorre la imagen
+% mediante una ventana de 4x4 buscando 0's y luego se rellenan esos espacios
+% segun un numero aleatorio correspondiente a la distribucion normal de la
+% ventana(datos de la ventana sin considerar los 0). Luego como la reja es
+% mas gruesa que 4x4 existe parte de ella que no es eliminada, por lo cual
+% se recorre nuevamente con una ventana de 8x8.
+
+
+figure;
+faltan_datos = venado.*uint8(~imdilate(b,1));
+imshow(faltan_datos)
+title('Imagen con datos faltantes', 'Interpreter', 'latex', 'FontSize', 30)
+
+for iii = 1:3
+    divisiones = 256;
+    salto = N/divisiones - 1;
+    for i = 1:N/divisiones:N-1
+        for j = 1:M/divisiones:M-1
+            mu = media(faltan_datos(i:i+salto, j:j+salto, iii));
+            sigma = sd(faltan_datos(i:i+salto, j:j+salto, iii), mu);
+            for k = i:salto+i
+                for kk = j:salto+j
+                    if faltan_datos(k, kk, iii) == 0
+                        faltan_datos(k, kk, iii) = normrnd(mu,sigma);
+                    end
+                end
+            end
+        end
+    end
+    divisiones = 128;
+    salto = N/divisiones - 1;
+    for i = 1:N/divisiones:N-1
+        for j = 1:M/divisiones:M-1
+            mu = media(faltan_datos(i:i+salto, j:j+salto, iii));
+            sigma = sd(faltan_datos(i:i+salto, j:j+salto, iii), mu);
+            for k = i:salto+i
+                for kk = j:salto+j
+                    if faltan_datos(k, kk, iii) == 0
+                        faltan_datos(k, kk, iii) = normrnd(mu,sigma);
+                    end
+                end
+            end
+        end
+    end
+end
+figure;
+imshow(faltan_datos)
+title('Imagen Recontruida', 'Interpreter', 'latex', 'FontSize', 30)
+
+%% Funciones
+
+function [y] = normalizar(im)
+y = zeros(size(im), 'uint8');
+for i = 1:3
+    x = im(:,:,i);
+    y(:,:,i) = uint8(255*(x-min(x(:)))/(max(x(:))-min(x(:))));
+
+end
+end
+
+function m = media(a)
+    cantidad = 0;
+    suma = 0;
+    [N, M] = size(a);
+    for ii = 1:N
+        for jj = 1:M
+            if a(ii, jj) ~= 0
+                cantidad = cantidad + 1;
+                suma = suma + double(a(ii, jj));
+            end
+        end
+    end
+    m = suma/cantidad;
+end
+
+function s = sd(a, u)
+    suma = 0;
+    cantidad = 0;
+    [N, M] = size(a);
+    for i = 1:N
+        for j = 1:M
+            if a(i, j) ~= 0
+                cantidad = cantidad + 1;
+                suma = suma + (double(a(i, j)) - u).^2;
+            end
+        end
+    end
+    s = sqrt((1/(cantidad - 1))*suma);
+end
+
+##### SOURCE END #####
+--></body></html>
